@@ -1,0 +1,59 @@
+<dom-module id="lifecycle-element" noscript>
+  <template>
+    <button id="btn">Hello world</button>
+  </template>
+  <script>
+  Polymer({
+    is:"lifecycle-element",
+
+    //this has no access to the dom
+    created: function(){
+      this.log('created');
+      this.addEventListener('click',function(){
+        this.remove()// this will trigger detached
+      })
+    },
+    /* only execute once and will be trigger when nested element triggered
+        this has access to the dom
+    */
+    ready:function(){
+      this.log('ready');
+      this.ticker= setInterval(this.tick.bind(this),500);
+    },
+
+    /*
+        this has access to the dom
+    */
+    attached:function(){
+      this.log('attached')
+    },
+    /*
+        this has access to the dom
+    */
+    detached: function(){
+      this.log('detached')
+      clearInterval(this.ticker)
+    },
+    attributeChanged:function(name,oldValue,newValue){
+      console.log('%s was changes to %s from %s', name,newValue,oldValue)
+    },
+
+
+        /////////customized function
+    updateAttribute:function(cycle){
+      this.setAttribute('class',cycle)
+    },
+
+
+
+    log:function(cycle){
+      console.log('******'+cycle);
+      this.$ && console.dir(this.$.btn); // this outputs button#btn.style-scope.lifecycle-element   if only if the caller has access to this dom
+      this.updateAttribute(cycle)
+    },
+    tick:function(){
+      this.setAttribute('data-id',Math.random());
+    }
+  })
+  </script>
+</dom-module>

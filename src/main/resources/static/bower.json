@@ -1,0 +1,22 @@
+{
+  "name": "PolymerStudy",
+  "authors": [
+    "kevin870401 <kevin870401@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~1.2.3",
+    "google-map": "GoogleWebComponents/google-map#~1.1.7"
+  }
+}

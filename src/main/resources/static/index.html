@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+      <!-- 1. Load platform support before any code that touches the DOM -->
+      <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+      <link rel="import" href="bower_components/polymer/polymer.html">
+      <link rel="import" href="elements/hello-world.html">
+      <link rel="import" href="elements/lifecycle-element.html">
+      <link rel="import" href="elements/my-card.html" />
+      <link rel="import" href="elements/my-button.html" />
+      <link rel="import" href="elements/prop-element.html" />
+      <link rel="import" href="elements/parent-element.html" />
+      <link rel="import" href="elements/observer-element.html" />
+      <link rel="import" href="elements/listener-element.html" />
+      <link rel="import" href="elements/my-range.html" />
+      <link rel="import" href="elements/cart-list.html" />
+    </head>
+    <body>
+      <hello-world id="h" name="Joe"></hello-world>
+      <lifecycle-element id="l" name="Joe"></lifecycle-element>
+      <my-card></my-card>
+      <button is="my-button">Hello World</button>
+      <button>Hello World</button>
+      <prop-element position="Boss Man" name="Joe Maddalone"></prop-element>
+      <parent-element></parent-element>
+      <observer-element></observer-element>
+      <listener-element></listener-element>
+      <my-range value="10"></my-range>
+      <script>
+        document.querySelector('my-range').addEventListener('valueChanged', function(e){ // add listener to the customized value changed
+          console.log(e.detail.increased)
+        } )
+      </script>
+      <cart-list></cart-list>
+    </body>
+</html>
